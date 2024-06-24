@@ -15,7 +15,7 @@ import Button from "./Button";
 
 const ContactMe = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const [state, handleSubmit, reset] = useForm(process.env.FORM_URL || "");
+  const [state, handleSubmit, reset] = useForm(process.env.NEXT_PUBLIC_FORM_URL || "");
 
   if (state.succeeded) {
     if (state.succeeded) {
@@ -86,7 +86,7 @@ const ContactMe = () => {
           Connect with Me
         </h2>
         <p className="mb-6 text-[#141414] *:text-left">
-          I'd love to hear from you! Feel free to reach out via email or connect
+          I&apos;d love to hear from you! Feel free to reach out via email or connect
           with me on social media. Alternatively, you can fill out the form to
           send me a message directly.
         </p>

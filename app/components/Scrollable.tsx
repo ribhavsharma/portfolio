@@ -34,6 +34,8 @@ const ScrollableText = () => {
             "char inline-block transition-opacity duration-50 ease-in-out";
           if (char === " ") {
             span.innerHTML = "&nbsp;";
+          } else if (char === "'") {
+            span.innerHTML = "&apos;";
           } else {
             span.innerText = char;
           }
@@ -82,7 +84,7 @@ const ScrollableText = () => {
         className={`font-rebond text-2xl md:text-4xl ${window.innerWidth > 768 ? "text-gray-200" : "text-[#141414]"} w-[60%]`}
       >
         <p className={`${window.innerWidth > 768 ? "scroll-text" : ""}`}>
-          Hi, I am Ribhav. I am a Fullstack Developer and UI/UX Designer based
+          Hi, I&apos;m Ribhav. I am a Fullstack Developer and UI/UX Designer based
           out of Kelowna, Canada.
         </p>
         <br></br>
@@ -96,7 +98,7 @@ const ScrollableText = () => {
         </p>
         <br></br>
         <p className={`${window.innerWidth > 768 ? "scroll-text" : ""}`}>
-          Let's build something splendid together.
+          Let&apos;s build something splendid together.
         </p>
       </div>
     </div>

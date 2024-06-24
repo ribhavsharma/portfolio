@@ -1,20 +1,14 @@
-import React, {
-  useRef,
-  MouseEvent,
-  TouchEvent,
-  RefObject,
-  useState,
-} from "react";
+import React, { useRef, MouseEvent, TouchEvent, RefObject, useState } from "react";
 
 type Props = {};
 
 const MouseGallery = (props: Props) => {
   const [msg, showMsg] = useState(true);
-  let refs: RefObject<HTMLImageElement>[] = [];
+  const refs = useRef<(HTMLImageElement | null)[]>(new Array(11).fill(null));
   let currentIndex: number = 0;
   let steps: number = 0;
   let nbOfImages: number = 0;
-  let maxNumberOfImages: number = 9;
+  const maxNumberOfImages: number = 9;
 
   const manageMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     showMsg(false);
@@ -30,7 +24,7 @@ const MouseGallery = (props: Props) => {
       removeImage();
     }
 
-    if (currentIndex === refs.length) {
+    if (currentIndex === refs.current.length) {
       currentIndex = 0;
       steps = -300;
     }
@@ -52,7 +46,7 @@ const MouseGallery = (props: Props) => {
       removeImage();
     }
 
-    if (currentIndex === refs.length) {
+    if (currentIndex === refs.current.length) {
       currentIndex = 0;
       steps = -300;
     }
@@ -63,8 +57,8 @@ const MouseGallery = (props: Props) => {
     let firstIndex = currentIndex - nbOfImages;
     for (let i = firstIndex; i < currentIndex; i++) {
       let targetIndex = i;
-      if (targetIndex < 0) targetIndex += refs.length;
-      images.push(refs[targetIndex].current!);
+      if (targetIndex < 0) targetIndex += refs.current.length;
+      images.push(refs.current[targetIndex]!);
     }
     return images;
   };
@@ -83,7 +77,7 @@ const MouseGallery = (props: Props) => {
   };
 
   const moveImage = (x: number, y: number) => {
-    const currentImage = refs[currentIndex].current;
+    const currentImage = refs.current[currentIndex];
 
     if (currentImage) {
       currentImage.style.left = x + "px";
@@ -109,20 +103,17 @@ const MouseGallery = (props: Props) => {
           </span>
         </div>
       )}
-      {[...Array(11).keys()].map((_, index) => {
-        const ref = useRef<HTMLImageElement>(null);
-        refs.push(ref);
-        return (
-          <img
-            key={index}
-            ref={ref}
-            src={`/images/${index}.jpg`}
-            className="hidden absolute w-[20vw] translate-x-[-50%] translate-y-[-50%]"
-            alt={`Image ${index}`}
-          />
-        );
-      })}
-
+      {[...Array(11).keys()].map((_, index) => (
+        <img
+          key={index}
+          ref={(el) => {
+            refs.current[index] = el;
+          }}
+          src={`/images/${index}.jpg`}
+          className="hidden absolute w-[20vw] translate-x-[-50%] translate-y-[-50%]"
+          alt={`Image ${index}`}
+        />
+      ))}
       <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-white to-transparent z-[60]"></div>
     </div>
   );
