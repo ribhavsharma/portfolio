@@ -33,7 +33,7 @@ const ContactMe = () => {
   useEffect(() => {
     const cursorElement = cursorRef.current;
     const text = "contact me • contact me • contact me •";
-    const radius = 50;
+    const radius = window.innerWidth>768?50:30;
 
     if (cursorElement) {
       cursorElement.innerHTML = "";
@@ -79,7 +79,7 @@ const ContactMe = () => {
   return (
     <div
       id="contact-me"
-      className="relative py-10 flex flex-col md:flex-row justify-center w-[90%] md:w-[60%] mx-auto"
+      className="relative py-10 flex flex-col md:flex-row justify-center w-[70%] md:w-[60%] mx-auto"
     >
       <div className="w-[90%] md:w-1/2 md:pr-8 mb-8 md:mb-0 mx-auto">
         <h2 className="text-3xl font-rebond my-6 text-[#141414] text-left">
