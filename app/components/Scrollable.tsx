@@ -13,23 +13,18 @@ const ScrollableText = () => {
         const wordElement = document.createElement('span');
         wordElement.className = 'word inline-block';
 
-        if (word.includes("Ribhav")) {
-          // Additional styles or functionality can be added here if needed
-        }
-
-        if (word === "Fullstack" || word === "Developer" || word === "UI/UX" || word === "Designer") {
-          wordElement.classList.add("squiggle");
-        }
 
         word.split('').forEach(char => {
           const span = document.createElement('span');
           span.className = 'char inline-block transition-opacity duration-50 ease-in-out';
           if (char === ' ') {
             span.innerHTML = '&nbsp;';
+          } else if (char === "'") {
+            span.innerHTML = '&apos;';
           } else {
             span.innerText = char;
           }
-          span.style.color = 'rgba(0, 0, 0, 0.2)'; // Initially light grey
+          span.style.color = 'rgba(0, 0, 0, 0.2)'; 
 
           wordElement.appendChild(span);
         });
@@ -38,7 +33,7 @@ const ScrollableText = () => {
 
         const spaceSpan = document.createElement('span');
         spaceSpan.innerText = ' ';
-        textElement.appendChild(spaceSpan); // Add space between words
+        textElement.appendChild(spaceSpan); 
       });
     });
 
@@ -65,14 +60,14 @@ const ScrollableText = () => {
     <div className="flex items-start justify-center mt-40 md:mt-16">
       <div className="font-rebond text-2xl md:text-4xl text-gray-200 w-[90%] sm:w-[80%] md:w-[60%]">
         <p className="scroll-text">
-          Hi, I am Ribhav. I am a Fullstack Developer and UI/UX Designer based out of Kelowna, Canada.
+          Hi, I&apos;m Ribhav. I am a Fullstack Developer and UI/UX Designer based out of Kelowna, Canada.
         </p><br></br>
         
         <p className="scroll-text">
           I am a Fourth Year CS student at the University of British Columbia, Okanagan. My passion lies in creating intuitive and visually appealing digital experiences. With a strong foundation in both front-end and back-end development, I thrive on bringing ideas to life through code and design.
         </p><br></br>
         <p className="scroll-text">
-          Let's build something splendid together.
+          Let&apos;s build something splendid together.
         </p>
       </div>
     </div>
