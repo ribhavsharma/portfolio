@@ -95,3 +95,9 @@ body {
     -9px 4px 17.5px 0px rgba(124, 124, 124, 0.15) inset,
     0px 4px 4px 0px rgba(255, 255, 255, 0.43) inset;
 }
+
+.navbar{
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  
+}

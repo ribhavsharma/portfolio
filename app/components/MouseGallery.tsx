@@ -32,9 +32,10 @@ const MouseGallery = (props: Props) => {
 
   const manageTouchMove = (e: TouchEvent<HTMLDivElement>) => {
     showMsg(false);
-    const { clientX, clientY } = e.touches[0];
-    const movementX = e.touches[0].clientX - e.touches[0].clientX;
-    const movementY = e.touches[0].clientY - e.touches[0].clientY;
+    const touch = e.touches[0];
+    const { clientX, clientY } = touch;
+    const movementX = touch.clientX - Number(refs.current[currentIndex]?.dataset.lastTouchX || clientX);
+    const movementY = touch.clientY - Number(refs.current[currentIndex]?.dataset.lastTouchY || clientY);
 
     steps += Math.abs(movementX) + Math.abs(movementY);
 
@@ -50,6 +51,9 @@ const MouseGallery = (props: Props) => {
       currentIndex = 0;
       steps = -300;
     }
+
+    refs.current[currentIndex]?.setAttribute('data-last-touch-x', clientX.toString());
+    refs.current[currentIndex]?.setAttribute('data-last-touch-y', clientY.toString());
   };
 
   const getImages = (): HTMLImageElement[] => {
