@@ -33,7 +33,7 @@ const ContactMe = () => {
   useEffect(() => {
     const cursorElement = cursorRef.current;
     const text = "contact me • contact me • contact me •";
-    const radius = window.innerWidth>768?50:30;
+    const radius = 50;
 
     if (cursorElement) {
       cursorElement.innerHTML = "";
