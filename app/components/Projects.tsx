@@ -49,10 +49,9 @@ const Projects = () => {
       );
 
       const updatedRepos = pinnedRepos.map((repo) => {
-        if (repo.name === "GIT-PROJECT") {
+        if (repo.name === "Pink") {
           return {
             ...repo,
-            name: "Pink",
             description:
               "ride sharing services for women with exclusively female drivers",
           };
@@ -67,6 +66,14 @@ const Projects = () => {
             ...repo,
             description:
               "ASL to spoken language translation, with an interstellar twist",
+          };
+        }
+
+        else if (repo.name === "MyBlogPost") {
+          return {
+            ...repo,
+            description:
+              "blog post website with user authentication and CRUD operations",
           };
         }
         return repo;
