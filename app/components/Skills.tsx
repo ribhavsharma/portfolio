@@ -71,7 +71,7 @@ const Skills = () => {
   return (
     <div
       ref={containerRef}
-      className="py-10 flex flex-col items-stretch w-[60%] mx-auto"
+      className="py-10 flex flex-col items-stretch w-[80%] md:w-[60%] mx-auto"
     >
       <h2 className="text-3xl font-rebond my-8 text-[#141414]">Skills</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
