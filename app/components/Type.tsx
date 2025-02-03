@@ -125,6 +125,13 @@ const Type = (props: Props) => {
     });
   }, []);
 
+  const handleResetClick = () => {
+    reset();
+    if (containerRef.current) {
+      containerRef.current.focus();
+    }
+  };
+
   return (
     <motion.div
       className="py-10 flex flex-col items-stretch w-[80%] md:w-[60%] mx-auto font-rebond text-2xl md:text-4xl mt-40 md:mt-16 "
@@ -134,7 +141,7 @@ const Type = (props: Props) => {
     >
       <div className="flex justify-between items-center mb-2">
         <p className="text-gray-200">{wpm}</p>
-        <RefreshCcw className="text-gray-200 cursor-pointer" onClick={reset} />
+        <RefreshCcw className="text-gray-200 cursor-pointer" onClick={handleResetClick} />
       </div>
       <p
         className="text-gray-200 outline-none"
