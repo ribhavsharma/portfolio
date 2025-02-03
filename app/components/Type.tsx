@@ -184,7 +184,7 @@ const Type = (props: Props) => {
 
               {wpm > 110 && (
                 <a
-                  href={`mailto:your-email@example.com?subject=I beat your typing speed!&body=My WPM: ${wpm}`}
+                  href={`mailto:ribhavsharma2003@gmail.com?subject=you suck&body=im simply better! my wpm is ${wpm}.`}
                   className="bg-green-300 text-green-600 border-green-400 border-2 px-4 py-2 rounded hover:bg-green-600 transition-colors text-sm inline-block text-center w-full"
                 >
                   or... flex on me
