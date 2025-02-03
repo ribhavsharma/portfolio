@@ -33,7 +33,7 @@ export default function Home() {
           <>
             {window.innerWidth > 768 && <MouseGallery />}
             {isType ? (
-              <Type />
+              <Type onExit = {onClickType}/>
             ) : (
               <Scrollable onClickType={onClickType} />
             )}

@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import React, { useEffect, useRef } from "react";
 import { useState } from "react";
-import { RefreshCcw, X } from "lucide-react";
+import { RefreshCcw, LogOut} from "lucide-react";
 import {
   Dialog,
   DialogTrigger,
@@ -11,7 +11,9 @@ import {
 } from "@/components/ui/dialog";
 import Button from "./Button";
 
-type Props = {};
+type Props = {
+  onExit: () => void;
+};
 
 const text = `hi im ribhav i am a fullstack developer and uiux designer based out of kelowna canada i am a fourth year cs student at the university of british columbia okanagan my passion lies in creating intuitive and visually appealing digital experiences with a strong foundation in both frontend and backend development i thrive on bringing ideas to life through code and design lets build something splendid together i like cool looking buttons and monkeytype `;
 
@@ -141,7 +143,10 @@ const Type = (props: Props) => {
     >
       <div className="flex justify-between items-center mb-2">
         <p className="text-gray-200">{wpm}</p>
-        <RefreshCcw className="text-gray-200 cursor-pointer" onClick={handleResetClick} />
+        <div className="flex space-x-2">
+          <RefreshCcw className="text-gray-200 cursor-pointer" onClick={handleResetClick} />
+          <LogOut className="text-gray-200 cursor-pointer" onClick={props.onExit}/>
+        </div>
       </div>
       <p
         className="text-gray-200 outline-none"
