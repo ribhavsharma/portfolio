@@ -32,6 +32,7 @@
     "react": "^18",
     "react-confetti": "^6.2.2",
     "react-dom": "^18",
+    "react-icons": "^5.4.0",
     "react-toastify": "^10.0.5",
     "react-tooltip": "^5.26.4",
     "splitting": "^1.1.0",

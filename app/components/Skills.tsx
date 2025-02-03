@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { SiTypescript } from "react-icons/si";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faJava,
@@ -15,6 +16,7 @@ import {
   faWordpress,
   faBootstrap,
   faVuejs,
+  faAngular,
 } from "@fortawesome/free-brands-svg-icons";
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 import { Tooltip } from "@nextui-org/tooltip";
@@ -35,6 +37,8 @@ const skills = [
   { name: "WordPress", icon: faWordpress },
   { name: "Bootstrap", icon: faBootstrap },
   { name: "VueJS", icon: faVuejs },
+  { name: "AngularJS", icon: faAngular },
+  
 ];
 
 const Skills = () => {
@@ -102,6 +106,27 @@ const Skills = () => {
             </Tooltip>
           </div>
         ))}
+        <div
+            key="TypeScript"
+            className={`skill-row flex items-center justify-center p-4 rounded-[16px] border opacity-0 transition-opacity duration-700 text-2xl`}
+            style={{ aspectRatio: "1/1" }}
+          >
+        <Tooltip
+          key="TypeScript"
+          content="TypeScript"
+          showArrow
+          placement="bottom"
+          classNames={{
+            base: ["before:bg-black dark:before:bg-white"],
+            content: [
+              "py-2 px-4 shadow-xl",
+              "text-black bg-gradient-to-br from-white to-neutral-400",
+              "rounded-xl",
+            ],
+          }}>
+          <SiTypescript />
+        </Tooltip>
+        </div>
       </div>
     </div>
   );

@@ -28,6 +28,7 @@ const Type = (props: Props) => {
   const [startTime, setStartTime] = useState<number | null>(null);
   const [wpm, setWpm] = useState(0);
   const [showResults, setShowResults] = useState(false);
+  const inputRef = useRef(null);
 
   const getNumCorrect = (typed: string) => {
     let correctCount = 0;
@@ -140,6 +141,7 @@ const Type = (props: Props) => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      tabIndex={0}
     >
       <div className="flex justify-between items-center mb-2">
         <p className="text-gray-200">{wpm}</p>
@@ -206,6 +208,12 @@ const Type = (props: Props) => {
           </div>
         </motion.div>
       )}
+       <input
+      ref={inputRef}
+      type="text"
+      onKeyDown={handleType}
+      className="absolute opacity-0 pointer-events-none"
+    />
     </motion.div>
   );
 };

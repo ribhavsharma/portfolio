@@ -78,7 +78,11 @@ const ScrollableText = (
         <span className="scroll-text">
         I like cool looking buttons and 
         </span>
-        <span><Button full={false} onClick={props.onClickType}>monkeytype</Button></span>
+        {window.innerWidth > 768 ? (
+          <span><Button full={false} onClick={props.onClickType}>monkeytype</Button></span>
+        ) : (
+          <span>monkeytype</span>
+        )}
       </div>
     </div>
   );
