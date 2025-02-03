@@ -1,7 +1,12 @@
 "use client";
 import { useEffect } from "react";
+import Button from "./Button";
 
-const ScrollableText = () => {
+const ScrollableText = (
+  props: {
+    onClickType: () => void;
+  }
+) => {
   useEffect(() => {
     const textElements = document.querySelectorAll('.scroll-text') as NodeListOf<HTMLElement>;
     textElements.forEach(textElement => {
@@ -61,14 +66,19 @@ const ScrollableText = () => {
       <div className="font-rebond text-2xl md:text-4xl text-gray-200 w-[90%] sm:w-[80%] md:w-[60%]">
         <p className="scroll-text">
           Hi, I&apos;m Ribhav. I am a Fullstack Developer and UI/UX Designer based out of Kelowna, Canada.
-        </p><br></br>
+        </p><br/>
         
         <p className="scroll-text">
           I am a Fourth Year CS student at the University of British Columbia, Okanagan. My passion lies in creating intuitive and visually appealing digital experiences. With a strong foundation in both front-end and back-end development, I thrive on bringing ideas to life through code and design.
-        </p><br></br>
+        </p><br/>
         <p className="scroll-text">
           Let&apos;s build something splendid together.
-        </p>
+        </p><br />
+        
+        <span className="scroll-text">
+        I like cool looking buttons and 
+        </span>
+        <span><Button full={false} onClick={props.onClickType}>monkeytype</Button></span>
       </div>
     </div>
   );

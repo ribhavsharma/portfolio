@@ -1,4 +1,3 @@
-// components/Skills.tsx
 import React, { useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -54,7 +53,7 @@ const Skills = () => {
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
 
     rows?.forEach((row) => {
@@ -74,11 +73,12 @@ const Skills = () => {
       className="py-10 flex flex-col items-stretch w-[80%] md:w-[60%] mx-auto"
     >
       <h2 className="text-3xl font-rebond my-8 text-[#141414]">Skills</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
         {skills.map((skill, index) => (
           <div
             key={skill.name}
-            className={`skill-row flex items-center p-4  rounded-[16px] border w-[120px] h-[120px] opacity-0 transition-opacity duration-700 delay-${index * 100}`}
+            className={`skill-row flex items-center justify-center p-4 rounded-[16px] border opacity-0 transition-opacity duration-700 delay-${index * 100}`}
+            style={{ aspectRatio: "1/1" }}
           >
             <Tooltip
               key={skill.name}
@@ -97,7 +97,7 @@ const Skills = () => {
               <FontAwesomeIcon
                 icon={skill.icon}
                 className="text-[#141414] mx-auto"
-                size="2xl"
+                size="2x"
               />
             </Tooltip>
           </div>

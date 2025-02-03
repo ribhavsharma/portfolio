@@ -10,22 +10,33 @@ import Separator from "./components/Separator";
 import Projects from "./components/Projects";
 import ContactMe from "./components/ContactMe";
 import Footer from "./components/Footer";
+import Type from "./components/Type";
+import {motion} from 'motion/react'
 
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
+  const [isType, setIsType] = useState(false);
+
+  const onClickType = () => {
+    setIsType(!isType);
+  };
 
   useLayoutEffect(() => {
     setIsClient(true);
   }, []);
 
   return (
-    <div>
+    <motion.div>
       <Navbar />
       <main>
         {isClient && (
           <>
             {window.innerWidth > 768 && <MouseGallery />}
-            <Scrollable />
+            {isType ? (
+              <Type />
+            ) : (
+              <Scrollable onClickType={onClickType} />
+            )}
             <Separator />
             <Skills />
             <Separator />
@@ -37,6 +48,6 @@ export default function Home() {
         )}
         <Footer />
       </main>
-    </div>
+    </motion.div>
   );
 }
