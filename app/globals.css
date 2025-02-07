@@ -35,7 +35,7 @@ body {
   left: 50%;
   width: 100%;
   height: 100%;
-  border: 3px solid #5200ff; /* Adjust color and size as needed */
+  border: 3px solid #5200ff; 
   border-radius: 50%;
   z-index: -1;
   transform: translate(-50%, -50%);
@@ -71,7 +71,6 @@ body {
     transform 0.7s ease-out;
 }
 
-/* Add this to your global CSS or component-specific CSS file */
 .cursor {
   position: absolute;
   z-index: 1;
@@ -101,6 +100,105 @@ body {
   -webkit-backdrop-filter: blur(15px);
   
 }
+
+
+
+.key:active {
+  transform: translateY(2px) scale(0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  filter: brightness(0.95);
+
+}
+
+.key {
+  margin-bottom: -1em;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.15);
+  transition: transform 0.02s ease, box-shadow 0.1s ease;
+  
+}
+
+.top {
+  position: relative;
+  display: flex;
+  align-items: center; 
+  border-radius: var(--button-radius, 0.3125rem); 
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+      180deg,
+      rgba(168, 168, 167, 0) 0%,
+      
+      #f7f7f7 10%,
+     
+      #d5d5d5 75.84%,
+      #b3b3b3 81.43%,
+      #777 100%
+    ),
+    #d2d0cb;
+    overflow: hidden;
+    z-index: 1;
+    
+}
+
+
+.trapezoid {
+  position: relative;
+  width: var(--trapezoid-width, 0.4em);
+  flex-shrink: 0;
+  align-self: stretch; 
+  z-index: 0;
+  filter: blur(0.8px);
+}
+
+.trapezoid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.trapezoid.left::before {
+  right: 0;
+  clip-path: polygon(100% 0, 0 15%, 0 75%, 100% 100%);
+  background: linear-gradient(90deg, #757575 48%, rgba(104, 104, 104, 0.68) 88%), #dbdbdb;
+  filter: blur(0.5px);
+}
+
+.trapezoid.right::before {
+  left: 0;
+  clip-path: polygon(0 0, 100% 15%, 100% 75%, 0 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.13) 48%, #fff 88%), #dbdbdb;
+  filter: blur(0.5px);
+}
+
+.rectangle {
+  padding: var(--button-padding, 0.5em 0em);
+  margin: 0px -2.5px;
+  
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: var(--button-font-size, 1rem);
+  color: #333;
+}
+
+.btn-text{
+  border-radius: var(--button-radius, 0.3125rem);
+  padding: var(--button-padding, 0em 0.5em);
+  margin-bottom: 5px;
+  width: auto;
+  background: radial-gradient(
+      115.15% 130.19% at 6.1% 5%,
+      rgba(17, 17, 17, 0.2) 0%,
+      rgba(0, 0, 0, 0.04) 97.36%
+    ),
+    #f7f7f7;
+  color: #575756;
+  -webkit-text-stroke: rgba(255, 255, 255, 0.2) 1px;
+}
+
 
 @layer base {
   :root {
