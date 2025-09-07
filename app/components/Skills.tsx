@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { SiTypescript } from "react-icons/si";
+import { SiTypescript, SiScala } from "react-icons/si";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faJava,
@@ -124,7 +124,32 @@ const Skills = () => {
               "rounded-xl",
             ],
           }}>
+            <span>
           <SiTypescript />
+          </span>
+        </Tooltip>
+        </div>
+        <div
+            key="TypeScript"
+            className={`skill-row flex items-center justify-center p-4 rounded-[16px] border opacity-0 transition-opacity duration-700 text-2xl`}
+            style={{ aspectRatio: "1/1" }}
+          >
+        <Tooltip
+          key="Scala"
+          content="Scala"
+          showArrow
+          placement="bottom"
+          classNames={{
+            base: ["before:bg-black dark:before:bg-white"],
+            content: [
+              "py-2 px-4 shadow-xl",
+              "text-black bg-gradient-to-br from-white to-neutral-400",
+              "rounded-xl",
+            ],
+          }}>
+            <span>
+          <SiScala />
+          </span>
         </Tooltip>
         </div>
       </div>
